@@ -18,6 +18,11 @@ public class StartPage {
     private final By privateOfficeButton = By.xpath(".//*[text() = 'Личный Кабинет']");
     private final By сonstructorButton = By.xpath(".//*[text() = 'Конструктор']");
 
+    private final By bunSection = By.xpath(".//span[contains(text() = 'Булки')]");
+    private final By sauceSection = By.xpath(".//span[contains(text() = 'Соусы')]");
+    private final By ingredientsSection = By.xpath(".//span[contains(text() = 'Начинки')]");
+    private final By sectionNameIsActive = By.xpath(".//div[@class='tab_tab__1SPyG tab_tab_type_current__2BEPc pt-4 pr-10 pb-4 pl-10 noselect']");
+
     public void clickEnterButtonOnStartPage() {
         driver.findElement(enterButtonOnStartPage).click();
     }
@@ -33,6 +38,9 @@ public class StartPage {
     public void clickStellarBurgersLogo() {
         driver.findElement(stellarBurgersLogo).click();
     }
+    public void clickBun(){driver.findElement(bunSection).click();}
+    public void clickSauce(){driver.findElement(sauceSection).click();}
+    public void clickIngredients(){driver.findElement(ingredientsSection).click();}
 
     public void waitForLoadLoginPage() {
         new WebDriverWait(driver, Duration.ofSeconds(8))
@@ -43,6 +51,11 @@ public class StartPage {
         WebElement element = driver.findElement(createOrderButton);
         return element.isDisplayed();
     }
+    public boolean checkSectionIsActive() {
+        WebElement element = driver.findElement(sectionNameIsActive);
+        return element.isDisplayed();
+    }
+
 
     public StartPage(WebDriver driver) {
         this.driver = driver;
