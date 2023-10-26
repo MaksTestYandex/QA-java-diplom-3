@@ -17,9 +17,9 @@ public class StartPage {
     private final By createOrderButton = By.xpath(".//*[text() = 'Оформить заказ']");
     private final By privateOfficeButton = By.xpath(".//*[text() = 'Личный Кабинет']");
     private final By сonstructorButton = By.xpath(".//*[text() = 'Конструктор']");
-    private final By bunSection = By.xpath(".//span[contains(text() , 'Булки')]");
+    private final By bunsSection = By.xpath(".//span[contains(text() , 'Булки')]");
     private final By sauceSection = By.xpath(".//span[contains(text() , 'Соусы')]");
-    private final By ingredientsSection = By.xpath(".//span[contains(text() , 'Начинки')]");
+    private final By fillingsSection = By.xpath(".//span[contains(text() , 'Начинки')]");
     private final By sectionNameIsActive = By.xpath(".//div[@class='tab_tab__1SPyG tab_tab_type_current__2BEPc pt-4 pr-10 pb-4 pl-10 noselect']");
 
     public void openWindow() {
@@ -42,16 +42,16 @@ public class StartPage {
         driver.findElement(stellarBurgersLogo).click();
     }
 
-    public void clickBun() {
-        driver.findElement(bunSection).click();
+    public void clickBuns() {
+        driver.findElement(bunsSection).click();
     }
 
     public void clickSauce() {
         driver.findElement(sauceSection).click();
     }
 
-    public void clickIngredients() {
-        driver.findElement(ingredientsSection).click();
+    public void clickFillings() {
+        driver.findElement(fillingsSection).click();
     }
 
     public void waitForLoadStartPage() {

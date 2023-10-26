@@ -21,7 +21,7 @@ public class RegisterStellarPage {
     }
 
     public void openWindow() {
-        driver.get(TestVariables.REGISTERURL);
+        driver.get(TestVariables.URL+"register");
     }
     public void waitForLoadRegisterPage() {
         new WebDriverWait(driver, Duration.ofSeconds(8))
