@@ -1,9 +1,9 @@
 package com.github.mablinov.diplom3;
 
 import com.github.mblinov.diplom3.DriverFactory;
-import com.github.mblinov.diplom3.apirequests.RequestUserBody;
-import com.github.mblinov.diplom3.apirequests.RequestUserLoginBody;
-import com.github.mblinov.diplom3.apirequests.UserRequest;
+import com.github.mblinov.diplom3.api.RequestUserBody;
+import com.github.mblinov.diplom3.api.RequestUserLoginBody;
+import com.github.mblinov.diplom3.api.UserRequest;
 import com.github.mblinov.diplom3.pageobject.LoginStellarPage;
 import com.github.mblinov.diplom3.pageobject.PrivateOfficePage;
 import com.github.mblinov.diplom3.pageobject.StartPage;
