@@ -18,6 +18,10 @@ public class LoginStellarPage {
     private final By forgotPasswordButton = By.xpath(".//*[text() = 'Восстановить пароль']");
     private final By registrationButtonOnLoginPage = By.xpath(".//*[text() = 'Зарегистрироваться']");
 
+    public LoginStellarPage(WebDriver driver) {
+        this.driver = driver;
+    }
+
     public void waitForLoadLoginPage() {
         new WebDriverWait(driver, Duration.ofSeconds(8))
                 .until(ExpectedConditions.visibilityOfElementLocated(enterLogo));
@@ -26,10 +30,6 @@ public class LoginStellarPage {
     public boolean checkEnterLogo() {
         WebElement element = driver.findElement(enterLogo);
         return element.isDisplayed();
-    }
-
-    public LoginStellarPage(WebDriver driver) {
-        this.driver = driver;
     }
 
     public void clickEnterButton() {
@@ -61,7 +61,6 @@ public class LoginStellarPage {
     public void inputPassword(String password) {
         driver.findElements(inputField).get(1).sendKeys(password);
     }
-
 
     public void loginFormInput(String email, String password) {
         clickEmail();

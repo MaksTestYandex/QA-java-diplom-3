@@ -1,4 +1,4 @@
-package com.github.mblinov.diplom3.apirequests;
+package com.github.mblinov.diplom3.api;
 
 import io.qameta.allure.Step;
 import io.restassured.response.ValidatableResponse;
@@ -31,7 +31,6 @@ public class UserRequest {
                 .then()
                 .log().all();
     }
-
 
     @Step
     public ValidatableResponse deleteUser(String token) {

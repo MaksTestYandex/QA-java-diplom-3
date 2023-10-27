@@ -15,12 +15,16 @@ public class StartPage {
     private final By assembleBurgerText = By.xpath(".//*[text() = 'Соберите бургер']");
     private final By enterButtonOnStartPage = By.xpath(".//*[text() = 'Войти в аккаунт']");
     private final By createOrderButton = By.xpath(".//*[text() = 'Оформить заказ']");
-    private final By privateOfficeButton = By.xpath(".//*[text() = 'Личный Кабинет']");
-    private final By сonstructorButton = By.xpath(".//*[text() = 'Конструктор']");
+    private final By accountProfileButton = By.xpath(".//*[text() = 'Личный Кабинет']");
+    private final By constructorButton = By.xpath(".//*[text() = 'Конструктор']");
     private final By bunsSection = By.xpath(".//span[contains(text() , 'Булки')]");
     private final By sauceSection = By.xpath(".//span[contains(text() , 'Соусы')]");
     private final By fillingsSection = By.xpath(".//span[contains(text() , 'Начинки')]");
     private final By sectionNameIsActive = By.xpath(".//div[@class='tab_tab__1SPyG tab_tab_type_current__2BEPc pt-4 pr-10 pb-4 pl-10 noselect']");
+
+    public StartPage(WebDriver driver) {
+        this.driver = driver;
+    }
 
     public void openWindow() {
         driver.get(TestVariables.URL);
@@ -30,12 +34,12 @@ public class StartPage {
         driver.findElement(enterButtonOnStartPage).click();
     }
 
-    public void clickPrivateOfficeButton() {
-        driver.findElement(privateOfficeButton).click();
+    public void clickAccountProfileButton() {
+        driver.findElement(accountProfileButton).click();
     }
 
     public void clickConstructorButton() {
-        driver.findElement(сonstructorButton).click();
+        driver.findElement(constructorButton).click();
     }
 
     public void clickStellarBurgersLogo() {
@@ -72,10 +76,6 @@ public class StartPage {
     public void loadWindow() {
         openWindow();
         waitForLoadStartPage();
-
     }
 
-    public StartPage(WebDriver driver) {
-        this.driver = driver;
-    }
 }

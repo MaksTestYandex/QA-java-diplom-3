@@ -21,13 +21,15 @@ public class RegisterStellarPage {
     }
 
     public void openWindow() {
-        driver.get(TestVariables.URL+"register");
+        driver.get(TestVariables.URL + "register");
     }
+
     public void waitForLoadRegisterPage() {
         new WebDriverWait(driver, Duration.ofSeconds(8))
                 .until(ExpectedConditions.visibilityOfElementLocated(By.xpath(".//*[text() = 'Регистрация']")));
     }
-    public boolean checkEnterLogo() {
+
+    public boolean checkErrorMessage() {
         WebElement element = driver.findElement(inputErrorMassage);
         return element.isDisplayed();
     }
@@ -60,7 +62,7 @@ public class RegisterStellarPage {
         driver.findElement(registrationButton).click();
     }
 
-    public void loadWindow(){
+    public void loadWindow() {
         openWindow();
         waitForLoadRegisterPage();
     }

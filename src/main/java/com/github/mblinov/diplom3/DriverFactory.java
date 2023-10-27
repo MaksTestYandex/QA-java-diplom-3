@@ -10,11 +10,11 @@ public class DriverFactory extends ExternalResource {
 
     @Override
     protected void before() {
-
-        if ("yandex".equals(System.getProperty("browser")))
+        if ("yandex".equals(System.getProperty("browser"))) {
             setUpYandex();
-        else
+        } else {
             setUpChrome();
+        }
     }
 
     @Override
@@ -23,16 +23,20 @@ public class DriverFactory extends ExternalResource {
     }
 
     private void setUpChrome() {
-        ChromeOptions options = new ChromeOptions();
         System.setProperty("webdriver.chrome.driver", "B:\\WebDriver\\bin\\chromedriver-win64\\chromedriver.exe");
+
+        ChromeOptions options = new ChromeOptions();
         driver = new ChromeDriver(options);
     }
+
     private void setUpYandex() {
-        ChromeOptions options = new ChromeOptions();
         System.setProperty("webdriver.chrome.driver", "B:\\WebDriver\\bin\\yandexdriver\\chromedriver.exe");
+
+        ChromeOptions options = new ChromeOptions();
         options.setBinary("C:\\Users\\mablinov\\AppData\\Local\\Yandex\\YandexBrowser\\Application\\browser.exe");
         driver = new ChromeDriver(options);
     }
+
     public WebDriver getDriver() {
         return driver;
     }

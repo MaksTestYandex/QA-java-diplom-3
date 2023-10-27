@@ -1,4 +1,4 @@
-package com.github.mblinov.diplom3.apirequests;
+package com.github.mblinov.diplom3.api;
 
 public class RequestUserBody {
     private String email;

@@ -8,13 +8,13 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
-public class PrivateOfficePage {
+public class AccountProfilePage {
     private final WebDriver driver;
 
     private final By profileLogo = By.xpath(".//*[text() = 'Профиль']");
     private final By logoutButton = By.xpath(".//*[text() = 'Выход']");
 
-    public PrivateOfficePage(WebDriver driver) {
+    public AccountProfilePage(WebDriver driver) {
         this.driver = driver;
     }
 
@@ -22,7 +22,7 @@ public class PrivateOfficePage {
         driver.findElement(logoutButton).click();
     }
 
-    public void waitForLoadPrivateOfficePage() {
+    public void waitForLoadAccountProfilePage() {
         new WebDriverWait(driver, Duration.ofSeconds(8))
                 .until(ExpectedConditions.visibilityOfElementLocated(profileLogo));
     }
