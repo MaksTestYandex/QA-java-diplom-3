@@ -27,3 +27,4 @@ replay_pid*
 /target/classes/*
 /target/maven-status/*
 /target/surefire-reports/*
+/Diplom_3.iml
