@@ -5,8 +5,28 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
+import java.io.InputStream;
+import java.util.Properties;
+
 public class DriverFactory extends ExternalResource {
+    private final String chromeDriverPath;
+    private final String yandexChromeDriverPath;
+    private final String yandexBrowserPath;
     private WebDriver driver;
+
+    public DriverFactory() {
+        try (InputStream inputStream = DriverFactory.class.getClassLoader().getResourceAsStream("webdriver.properties")) {
+            Properties appProps = new Properties();
+            appProps.load(inputStream);
+
+            chromeDriverPath = appProps.getProperty("path.chromedriver");
+            yandexChromeDriverPath = appProps.getProperty("path.yandex.chromedriver");
+            yandexBrowserPath = appProps.getProperty("path.yandex.browser");
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new RuntimeException("Driver factory can not be initialized: properties not found");
+        }
+    }
 
     @Override
     protected void before() {
@@ -23,17 +43,17 @@ public class DriverFactory extends ExternalResource {
     }
 
     private void setUpChrome() {
-        System.setProperty("webdriver.chrome.driver", "B:\\WebDriver\\bin\\chromedriver-win64\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", chromeDriverPath);
 
         ChromeOptions options = new ChromeOptions();
         driver = new ChromeDriver(options);
     }
 
     private void setUpYandex() {
-        System.setProperty("webdriver.chrome.driver", "B:\\WebDriver\\bin\\yandexdriver\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", yandexChromeDriverPath);
 
         ChromeOptions options = new ChromeOptions();
-        options.setBinary("C:\\Users\\mablinov\\AppData\\Local\\Yandex\\YandexBrowser\\Application\\browser.exe");
+        options.setBinary(yandexBrowserPath);
         driver = new ChromeDriver(options);
     }
 

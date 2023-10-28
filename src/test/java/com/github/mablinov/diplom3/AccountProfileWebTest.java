@@ -87,7 +87,7 @@ public class AccountProfileWebTest {
     }
 
     @Test
-    @DisplayName("Check that user moves from account profile to constructorpage")
+    @DisplayName("Check that user moves from account profile to constructor page")
     @Description("Load start page, click Enter-button, login, click AccountProfile-button, click StellarBurger logo | assert: CreateOrder button is displayed")
     public void shouldMoveFromAccountProfileThroughStellarBurgerLogo() {
         WebDriver driver = factory.getDriver();
