@@ -1,5 +1,6 @@
 package com.github.mblinov.diplom3.pageobject;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -18,15 +19,18 @@ public class AccountProfilePage {
         this.driver = driver;
     }
 
+    @Step("Нажатие на кнопку выхода")
     public void clickLogoutButton() {
         driver.findElement(logoutButton).click();
     }
 
+    @Step("Ожидание загрузки профиля")
     public void waitForLoadAccountProfilePage() {
         new WebDriverWait(driver, Duration.ofSeconds(8))
                 .until(ExpectedConditions.visibilityOfElementLocated(profileLogo));
     }
 
+    @Step("Проверка отображения профиля")
     public boolean checkProfileLogo() {
         WebElement element = driver.findElement(profileLogo);
         return element.isDisplayed();

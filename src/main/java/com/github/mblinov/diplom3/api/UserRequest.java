@@ -8,7 +8,7 @@ import static io.restassured.RestAssured.given;
 public class UserRequest {
     public static final String USER_PATH = "/auth/";
 
-    @Step
+    @Step("Создание нового пользователя")
     public ValidatableResponse createNewUser(RequestUserBody userBody) {
         return given()
                 .spec(RequestSpec.requestSpecification())
@@ -20,7 +20,7 @@ public class UserRequest {
                 .log().all();
     }
 
-    @Step
+    @Step("Авторизация пользователя")
     public ValidatableResponse loginUser(RequestUserLoginBody userLoginBody) {
         return given()
                 .spec(RequestSpec.requestSpecification())
@@ -32,7 +32,7 @@ public class UserRequest {
                 .log().all();
     }
 
-    @Step
+    @Step("Удаление пользователя")
     public ValidatableResponse deleteUser(String token) {
         return given()
                 .spec(RequestSpec.requestSpecification())
